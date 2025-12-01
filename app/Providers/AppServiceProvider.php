@@ -2,6 +2,9 @@
 
 namespace App\Providers;
 
+use App\Services\Sms\SmsGatewayInterface;
+use App\Services\Sms\NexmoSms;
+use App\Services\Sms\TwilioSms;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -11,7 +14,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+          $this->app->bind(SmsGatewayInterface::class, NexmoSms::class);
+        //   $this->app->bind(SmsGatewayInterface::class, TwilioSms::class);
     }
 
     /**
