@@ -1,6 +1,7 @@
 <?php
 
 use App\Facades\SendSms;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\SendGridWebhookController;
 use App\Http\Controllers\SmsController;
 use Illuminate\Http\Request;
@@ -18,6 +19,8 @@ Route::get('/test-sms', function () {
 });
 
 Route::get('/sendgrid', [SendGridWebhookController::class, 'handle']);
+Route::get('/post', [PostController::class, 'create']);
+
 
 
 Route::get('/test-sendgrid', function() {
